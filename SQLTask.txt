@@ -1,0 +1,68 @@
+1.1 Before do this task i need for sure create my tables, doing like this:
+
+
+CREATE TABLE CUSTOMERS (
+	"Id"	INTEGER NOT NULL,
+	"Name"	TEXT,
+	"Maneger_id"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+
+
+CREATE TABLE MANAGERS (
+	"Id"	INTEGER NOT NULL,
+	"Name"	TEXT,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+
+
+CREATE TABLE ORDERS (
+	"Id"	INTEGER NOT NULL,
+	"Date"	TEXT,
+	"Amount"	INTEGER,
+	"Customer_Id"	INTEGER,
+	PRIMARY KEY("Id" AUTOINCREMENT)
+);
+
+
+//Main Task
+//TASK#1.1
+SELECT e.Name, mn.Name
+FROM ORDERS o 
+JOIN CUSTOMERS e
+ON e.Id=o.CUSTOMER_ID
+JOIN MANAGERS mn
+OM mn.Id = e.Manager_id
+WHERE o.Amount>10000 and o.Date > "01.01.2013"
+
+
+
+//TASK#2.2
+
+CREATE TABLE EMPLOYEES (
+	"emp_id" INTEGER NOT NULL,
+	"emp_name" TEXT,
+	"dept_id" INTEGER,
+	"salary" INTEGER
+);
+
+//Task#1
+SELECT * from EMPLOYEES
+where emp_name LIKE '%m%'
+and emp_name LIKE '%M%'
+
+//Task#2
+SELECT dept_id, MAX(salary) as "Hight Employee Salary"
+from EMPLOYEES
+GROUP BY dept_id;
+
+//Task#3
+SELECT emp_name, dept_id, salary
+FROM EMPLOYEES
+WHERE salary IN (
+    SELECT salary
+    FROM EMPLOYEES
+    GROUP BY salary
+    HAVING COUNT(*) > 1
+)
+ORDER BY salary ASC

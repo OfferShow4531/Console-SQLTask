@@ -1,0 +1,8 @@
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.csproj.AssemblyReference.cache
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.csproj.SuggestedBindingRedirects.cache
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.csproj.CoreCompileInputs.cache
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\CRMTaskConsole.exe.config
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\CRMTaskConsole.exe
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\CRMTaskConsole.pdb
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.exe
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.pdb
