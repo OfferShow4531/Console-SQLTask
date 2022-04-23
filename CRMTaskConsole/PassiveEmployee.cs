@@ -14,9 +14,9 @@ namespace CRMTaskConsole
         public string Adress { get; set; }
         public string PassiveName { get; set; }
 
-        public Dictionary<string, ActiveEmployee> EmployeeNames { get; set; }
+        //public Dictionary<string, ActiveEmployee> EmployeeNames { get; set; }
         
-        public List<string> lists { get; set; } 
+        public List<string> lists { get; set; }
         
         
 
