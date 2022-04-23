@@ -17,17 +17,17 @@ namespace CRMTaskConsole
 
             string filepath = @"D:\path.txt";
 
-            List<string> names = new List<string>() {"Tomas", "Tiphany", "Tine", "Era", "Trey", "Goph"};
+            List<string> names = new List<string>() { "Tomas", "Tiphany", "Tine", "Era", "Trey", "Goph" };
             List<string> names1 = new List<string>() { "Tomas", "Tiphany", "Tine" };
-            List<string> names2 = new List<string>() { "Era", "Trey"};
+            List<string> names2 = new List<string>() { "Era", "Trey" };
 
             FileInfo files = new FileInfo(filepath);
             Console.WriteLine(files.Name);
             Console.WriteLine(files.Extension);
-            
+
 
             Random random = new Random();
-            List<string> arraylist = new List<string>() { "Georgia", "Santa-Luisiano", "Los Angeles", "Santa-Maria", "China", "UK", "Finland", "Ireland"};
+            List<string> arraylist = new List<string>() { "Georgia", "Santa-Luisiano", "Los Angeles", "Santa-Maria", "China", "UK", "Finland", "Ireland" };
             int randomNumber(int n)
             {
                 for (int i = 1; i <= 10; i++)
@@ -48,8 +48,8 @@ namespace CRMTaskConsole
             }
 
 
-            
-         
+
+
 
             int length = 9;
             string rString = "";
@@ -78,13 +78,13 @@ namespace CRMTaskConsole
             }
             string firstLetterOfThirdString = wString.Substring(0, 1).ToUpper() + wString.Substring(1);
 
-            List<string> list = new List<string>();
-            List<string> outputs = new List<string>();
+            //List<string> list = new List<string>();
+            //List<string> outputs = new List<string>();
             //List<Employee> _employee = new List<Employee>();
             List<ActiveEmployee> _activeEmployee = new List<ActiveEmployee>();
-            
+
             ActiveEmployee active = new ActiveEmployee();
-            
+
             //if (File.Exists(filepath) && files.Extension == ".txt" || files.Extension == ".json")
             //{
             //    _employee.Add(new Employee()
@@ -95,7 +95,7 @@ namespace CRMTaskConsole
             //        AddDate = RandomDay(),
             //        Rebuilder = firstLetterOfSecondString,
             //        UpdateDate = RandomDay(),
-                    
+
 
             //    });
 
@@ -159,75 +159,88 @@ namespace CRMTaskConsole
 
 
             List<PassiveEmployee> _passiveEmployees = new List<PassiveEmployee>();
-            
+
 
             if (File.Exists(filepath) && files.Extension == ".txt" || files.Extension == ".json")
             {
-                _passiveEmployees.Add(new PassiveEmployee()
+                using (var stream = File.Open(filepath, FileMode.Open))
                 {
-                    PassiveName = firstLetterOfThirdString,
-                    Adress = arraylist[random.Next(arraylist.Count)], 
-                    EmployeeNames = new Dictionary<string, ActiveEmployee>
+                    _passiveEmployees.Add(new PassiveEmployee()
                     {
-                        ["FromActiveName"] = new ActiveEmployee { 
-                            Id = random.Next(3, 40), 
-                            BIN = randomNumber(9), 
-                            Creator = firstLetterOfFirstString,
-                            AddDate = RandomDay(),
-                            Rebuilder = firstLetterOfSecondString,
-                            UpdateDate = RandomDay(),
-                            ActiveName = "Johnson", Surname = "James", Middlename = "Johan"},    
-                    },  
-                    lists = names1
-                   
+
+                        PassiveName = firstLetterOfThirdString,
+                        Adress = arraylist[random.Next(arraylist.Count)],
+                        EmployeeNames = new Dictionary<string, ActiveEmployee>
+                        {
+                            ["FromActiveName"] = new ActiveEmployee
+                            {
+                                Id = random.Next(3, 40),
+                                BIN = randomNumber(9),
+                                Creator = firstLetterOfFirstString,
+                                AddDate = RandomDay(),
+                                Rebuilder = firstLetterOfSecondString,
+                                UpdateDate = RandomDay(),
+                                ActiveName = "Johnson",
+                                Surname = "James",
+                                Middlename = "Johan"
+                            },
+                        },
+                        lists = names
+
+
+                    }); 
                     
-                });;
-               
-                string pjson = JsonConvert.SerializeObject(_passiveEmployees.ToArray());
-
-                //for(int i = 1; i<7; i++)
-                //{
-                //    for(int j = 0; j<7-i-1; j++)
-                //    {
-                //        if (_passiveEmployees[j].lists.Count > _passiveEmployees[j + 1].lists.Count)
-                //        {
-                //            PassiveEmployee loh = _passiveEmployees[j];
-                //            _passiveEmployees[j] = _passiveEmployees[j+1];
-                //            _passiveEmployees[j+1] = loh;
-                //        }
-
-                //    }
-
-
-                //}
-                string AscMyJson(string json)
-                {
-                    var listOb = JsonConvert.DeserializeObject<List<PassiveEmployee>>(json);
-                    var descListOb = listOb.OrderBy(x => x.lists);
-                    return JsonConvert.SerializeObject(descListOb);
                 }
-                AscMyJson(pjson);
+                string pjson = JsonConvert.SerializeObject(_passiveEmployees.ToArray());
+                System.IO.File.AppendAllText(filepath, "\n" + pjson);
+            }
+               
+               
 
-                var ordered = from i in pjson orderby i descending select i;
-
-                System.IO.File.AppendAllText(filepath, pjson);
-
-
-
-                //using (StreamWriter file = File.CreateText(@"D:\path.txt"))
-                //{
-                //    JsonSerializer serializer = new JsonSerializer();
-                //    //serialize object directly into file stream
-                //    serializer.Serialize(file, _passiveEmployees);
-
-                //}
                 
 
+                if (File.Exists(filepath) && files.Extension == ".txt" || files.Extension == ".json")
+                {
+                    using (var stream = File.Open(filepath, FileMode.Open))
+                    {
+                        foreach(var employee in _passiveEmployees)
+                        {
+                            employee.lists.Reverse();
+                        }
+
+
+
+                }
+                string json_ordered = JsonConvert.SerializeObject(_passiveEmployees.ToArray());
+                System.IO.File.AppendAllText(filepath, "\n" + json_ordered);
             }
+
+            //System.IO.File.Open(filepath, FileMode.OpenOrCreate);
+            //List<string> line = File.ReadAllLines(filepath).ToList();
+            //string AscMyJson(string json)
+            //{
+            //    var listOb = JsonConvert.DeserializeObject<List<PassiveEmployee>>(json);
+            //    var descListOb = listOb.OrderBy(x => x.lists);
+            //    return JsonConvert.SerializeObject(descListOb);
+            //}
+            //AscMyJson(pjson);
+
+
+            //using (StreamWriter file = File.CreateText(@"D:\path.txt"))
+            //{
+            //    JsonSerializer serializer = new JsonSerializer();
+            //    //serialize object directly into file stream
+            //    serializer.Serialize(file, _passiveEmployees);
+
+            //}
+
             Console.ReadLine();
+        }
+
+           
 
 
-            
+
 
 
             /*Console.WriteLine(files.Name);
@@ -401,7 +414,7 @@ namespace CRMTaskConsole
 
 
         }
-       
+        
     }
         
-}
+

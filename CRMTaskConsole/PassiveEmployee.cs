@@ -10,6 +10,7 @@ namespace CRMTaskConsole
     public class PassiveEmployee 
     {
 
+        
         public string Adress { get; set; }
         public string PassiveName { get; set; }
 
