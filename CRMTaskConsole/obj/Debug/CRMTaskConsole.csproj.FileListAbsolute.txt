@@ -6,3 +6,6 @@ C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\CRMTask
 C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\CRMTaskConsole.pdb
 C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.exe
 C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.pdb
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\Newtonsoft.Json.dll
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\bin\Debug\Newtonsoft.Json.xml
+C:\Users\STRONGCOMP\source\repos\CRMTaskConsole\CRMTaskConsole\obj\Debug\CRMTaskConsole.csproj.CopyComplete
