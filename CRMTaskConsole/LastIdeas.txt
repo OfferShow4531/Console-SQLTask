@@ -263,3 +263,8 @@
 
             */
 
+              //string readjson = JsonConvert.SerializeObject(_passiveEmployees.ToArray());
+              //IEnumerable<string> queryHighScores =
+              //(IEnumerable<string>)(from score in _passiveEmployees 
+              //orderby score.lists.ToList()
+              //select score.lists.ToList());

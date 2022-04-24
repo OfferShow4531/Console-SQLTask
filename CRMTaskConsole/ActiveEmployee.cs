@@ -12,7 +12,6 @@ namespace CRMTaskConsole
         public string ActiveName { get; set; }    
         public string Surname { get; set; }
         public string Middlename { get; set; }
-
     
      }
     
